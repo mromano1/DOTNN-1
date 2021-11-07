@@ -1,0 +1,7 @@
+[submodule "AutoCrawler"]
+	path = AutoCrawler
+	url = https://github.com/YoongiKim/AutoCrawler.git
+	ignore = untracked
+[submodule "yolov5"]
+	path = yolov5
+	url = https://github.com/ultralytics/yolov5
