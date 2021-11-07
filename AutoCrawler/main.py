@@ -338,13 +338,13 @@ class AutoCrawler:
 
 
 def get_keywords_from_user():
-    print('type keyword line by line. If you enter all keywords, please type iamdone ')
+    print('Type a keyword line by line. If you enter all keywords, please type iamdone ')
     keyword = ""
     keywords = []
     while keyword != "iamdone":
         keyword = input("Type keyword:")
         if keyword == "iamdone":
-            break;
+            break
         keywords.append(keyword)
 
     with open('keywords.txt', 'w') as f:
@@ -352,9 +352,12 @@ def get_keywords_from_user():
             f.write(line)
             f.write('\n')
 
+    limit = int(input('How many images would you like to downlaod: '))
+    return limit
+
 
 if __name__ == '__main__':
-    get_keywords_from_user()
+    user_limit = get_keywords_from_user()
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--skip', type=str, default='true',
@@ -382,7 +385,8 @@ if __name__ == '__main__':
     _naver = False if str(args.naver).lower() == 'false' else True
     _full = False if str(args.full).lower() == 'false' else True
     _face = False if str(args.face).lower() == 'false' else True
-    _limit = int(args.limit)
+    _limit = user_limit
+    # _limit = int(args.limit)
     _proxy_list = args.proxy_list.split(',')
 
     no_gui_input = str(args.no_gui).lower()
