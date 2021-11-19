@@ -37,6 +37,12 @@ from utils.general import (LOGGER, apply_classifier, check_file, check_img_size,
 from utils.plots import Annotator, colors, save_one_box
 from utils.torch_utils import load_classifier, select_device, time_sync
 
+# MongoDB Connection
+from pymongo import MongoClient
+client = MongoClient('mongodb+srv://developer1:hyunsoo97@qple-core.jxnch.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+db = client['Lemmefind']
+obj = db['Objects']
+# END
 
 @torch.no_grad()
 def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
@@ -212,6 +218,15 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
                 p, im0, frame = path, im0s.copy(), getattr(dataset, 'frame', 0)
 
             p = Path(p)  # to Path
+
+            # Parse longitude and latitude from a file name
+            idx = 0
+            for i in range(len(p.name) - 1, -1, -1):
+                if p.name[i] == '.':
+                    idx = i
+                    break
+            coordinates = p.name[0:idx].split(',')
+
             save_path = str(save_dir / p.name)  # img.jpg
             txt_path = str(save_dir / 'labels' / p.stem) + ('' if dataset.mode == 'image' else f'_{frame}')  # img.txt
             s += '%gx%g ' % img.shape[2:]  # print string
@@ -238,6 +253,14 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
                     if save_img or save_crop or view_img:  # Add bbox to image
                         c = int(cls)  # integer class
                         label = None if hide_labels else (names[c] if hide_conf else f'{names[c]} {conf:.2f}')
+
+                        post = {
+                            "objectName": names[c],
+                            "longitude": float(coordinates[0]),
+                            "latitude": float(coordinates[1]),
+                        }
+                        post_id = obj.insert_one(post).inserted_id
+
                         annotator.box_label(xyxy, label, color=colors(c, True))
                         if save_crop:
                             save_one_box(xyxy, imc, file=save_dir / 'crops' / names[c] / f'{p.stem}.jpg', BGR=True)

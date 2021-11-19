@@ -1,0 +1,1439 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StreetSmart.WinForms</name>
+    </assembly>
+    <members>
+        <member name="T:StreetSmart.WinForms.Factories.OverlayFactory">
+            <summary>
+            Factory for create a overlay
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.OverlayFactory.Create(System.String,System.String)">
+            <summary>
+            Create the overlay object
+            </summary>
+            <param name="geoJson">GeoJSON object containing the layer data</param>
+            <param name="name">Name of the layer.</param>
+            <returns>Overlay object</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.OverlayFactory.Create(System.String,System.String,System.String)">
+            <summary>
+            Create the overlay object
+            </summary>
+            <param name="geoJson">GeoJSON object containing the layer data</param>
+            <param name="name">Name of the layer.</param>
+            <param name="srs">EPSG code (srs) for the source GeoJSON</param>
+            <returns>Overlay object</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.OverlayFactory.Create(System.String,System.String,System.String,System.String)">
+            <summary>
+            Create the overlay object
+            </summary>
+            <param name="geoJson">GeoJSON object containing the layer data</param>
+            <param name="name">Name of the layer.</param>
+            <param name="srs">Optional EPSG code (srs) for the source GeoJSON, if not provided, srs of API initialisation is used.</param>
+            <param name="sld">Optional XML string for Styled Layer Descriptor</param>
+            <returns>Overlay object</returns>
+        </member>
+        <member name="T:StreetSmart.WinForms.Factories.MeasurementOptionsFactory">
+            <summary>
+            Factory for create measurement options to use for create a measurement
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.MeasurementOptionsFactory.Create">
+            <summary>
+            Create measurement options to use for create a measurement
+            </summary>
+            <returns>The measurement options to use for create a measurement</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.MeasurementOptionsFactory.Create(StreetSmart.WinForms.Interfaces.MeasurementGeometryType)">
+            <summary>
+            Create measurement options to use for create a measurement
+            </summary>
+            <param name="geometryType">The geometryType of the measurement</param>
+            <returns>The measurement options to use for create a measurement</returns>
+        </member>
+        <member name="T:StreetSmart.WinForms.Factories.ViewerOptionsFactory">
+            <summary>
+            Factory for create address settings to use for address searches
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.ViewerOptionsFactory.Create(System.Collections.Generic.IList{StreetSmart.WinForms.Interfaces.ViewerType},System.String)">
+            <summary>
+            Creates a viewer options object
+            </summary>
+            <param name="viewerType">An collection of viewerTypes</param>
+            <param name="srs">The SRS of the viewer</param>
+            <returns>The viewer options used for open viewers</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.ViewerOptionsFactory.Create(System.Collections.Generic.IList{StreetSmart.WinForms.Interfaces.ViewerType},System.String,System.Boolean)">
+            <summary>
+            Creates a viewer options object
+            </summary>
+            <param name="viewerType">An collection of viewerTypes</param>
+            <param name="srs">The SRS of the viewer</param>
+            <param name="replace">Whether the panorama viewer window should be replace</param>
+            <returns>The viewer options used for open viewers</returns>
+        </member>
+        <member name="T:StreetSmart.WinForms.Factories.DomElementFactory">
+            <summary>
+            Factory for create a object which takes a panorama viewer
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.DomElementFactory.Create">
+            <summary>
+            Creates a default DomElement which takes a panorama viewer
+            </summary>
+            <returns>Represents an object which takes a panorama viewer.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.DomElementFactory.Create(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a default DomElement which takes a panorama viewer
+            </summary>
+            <param name="width">Width in percent</param>
+            <param name="height">Height in percent</param>
+            <param name="top">Top in pixels</param>
+            <param name="left">Left in pixels</param>
+            <returns>Represents an object which takes a panorama viewer.</returns>
+        </member>
+        <member name="T:StreetSmart.WinForms.Factories.PanoramaViewerOptionsFactory">
+            <summary>
+            Factory for create Options which are used to initialize the panorama viewer
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.PanoramaViewerOptionsFactory.CreateRecordingsVisible(System.Boolean)">
+            <summary>
+            Create options to initialize the panorama viewer with
+            </summary>
+            <param name="recordingsVisible">If recordings should be visible</param>
+            <returns>Options to initialize the panorama viewer with</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.PanoramaViewerOptionsFactory.CreateTimeTravelVisible(System.Boolean)">
+            <summary>
+            Create options to initialize the panorama viewer with
+            </summary>
+            <param name="timeTravelVisible">If time travel is enabled</param>
+            <returns>Options to initialize the panorama viewer with</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.PanoramaViewerOptionsFactory.CreateNavBarVisible(System.Boolean)">
+            <summary>
+            Create options to initialize the panorama viewer with
+            </summary>
+            <param name="navBarVisible">If navbar is enabled</param>
+            <returns>Options to initialize the panorama viewer with</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.PanoramaViewerOptionsFactory.Create">
+            <summary>
+            Create options to initialize the panorama viewer with
+            </summary>
+            <returns>Options to initialize the panorama viewer with</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.PanoramaViewerOptionsFactory.Create(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Create options to initialize the panorama viewer with
+            </summary>
+            <param name="recordingsVisible">If recordings should be visible</param>
+            <param name="timeTravelVisible">If time travel is enabled</param>
+            <param name="navBarVisible">If nav bar is enabled</param>
+            <returns>Options to initialize the panorama viewer with</returns>
+        </member>
+        <member name="T:StreetSmart.WinForms.Factories.OrientationFactory">
+            <summary>
+            Factory for create a orientation object
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.OrientationFactory.CreatehFov(System.Double)">
+            <summary>
+            Create the orientation Object
+            </summary>
+            <param name="hFov">Value of the hFov.</param>
+            <returns>Orientation Object that contains values.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.OrientationFactory.CreatePitch(System.Double)">
+            <summary>
+            Create the orientation Object
+            </summary>
+            <param name="pitch">Value of the pitch.</param>
+            <returns>Orientation Object that contains values.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.OrientationFactory.CreateYaw(System.Double)">
+            <summary>
+            Create the orientation Object
+            </summary>
+            <param name="yaw">Value of the yaw.</param>
+            <returns>Orientation Object that contains values.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.OrientationFactory.Create(System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double})">
+            <summary>
+            Create the orientation Object
+            </summary>
+            <param name="yaw">Value of the yaw.</param>
+            <param name="pitch">Value of the pitch.</param>
+            <param name="hFov">Value of the hFov.</param>
+            <returns>Orientation Object that contains values.</returns>
+        </member>
+        <member name="T:StreetSmart.WinForms.Factories.CoordinateFactory">
+            <summary>
+            Factory for create coordinates
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.CoordinateFactory.Create(System.Double,System.Double)">
+            <summary>
+            Create coordinates
+            </summary>
+            <param name="x">X value of the coordinate</param>
+            <param name="y">Y value of the coordinate</param>
+            <returns>Coordinate definition</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.CoordinateFactory.Create(System.Double,System.Double,System.Double)">
+            <summary>
+            Create coordinates
+            </summary>
+            <param name="x">X value of the coordinate</param>
+            <param name="y">Y value of the coordinate</param>
+            <param name="z">Z value of the coordinate</param>
+            <returns>Coordinate definition</returns>
+        </member>
+        <member name="T:StreetSmart.WinForms.Factories.StreetSmartAPIFactory">
+            <summary>
+            Factory for creates a new instance of the API. API used to use and modify various StreetSmart components.
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.StreetSmartAPIFactory.Create">
+            <summary>
+            Creates a new instance of the API. API used to use and modify various StreetSmart components.
+            </summary>
+            <returns>API used to use and modify various StreetSmart components.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.StreetSmartAPIFactory.Create(System.String)">
+            <summary>
+            Creates a new instance of the API. API used to use and modify various StreetSmart components.
+            </summary>
+            <param name="streetSmartLocation">The location Uri of StreetSmart</param>
+            <returns>API used to use and modify various StreetSmart components.</returns>
+        </member>
+        <member name="T:StreetSmart.WinForms.Factories.OptionsFactory">
+            <summary>
+            Factory for create a object which containing the options used for initializing the API
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.OptionsFactory.Create(System.String,System.String,System.String,System.String,StreetSmart.WinForms.Interfaces.IDomElement)">
+            <summary>
+            Create the options object which used for initializing the API
+            </summary>
+            <param name="userName">Username of the user.</param>
+            <param name="password">Password of the user.</param>
+            <param name="apiKey">ApiKey given to the user.</param>
+            <param name="srs">Coordinate system used in the API. E.g. "EPSG:29882".</param>
+            <param name="element">The Domelement where in the panoramic image is rendered.</param>
+            <returns>Object containing the options used for initializing the API</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.OptionsFactory.Create(System.String,System.String,System.String,System.String,StreetSmart.WinForms.Interfaces.IDomElement,System.Nullable{System.Int32})">
+            <summary>
+            Create the options object which used for initializing the API
+            </summary>
+            <param name="userName">Username of the user.</param>
+            <param name="password">Password of the user.</param>
+            <param name="apiKey">ApiKey given to the user.</param>
+            <param name="srs">Coordinate system used in the API. E.g. "EPSG:29882".</param>
+            <param name="element">The Domelement where in the panoramic image is rendered.</param>
+            <param name="maxWindows">Maximum number of panorama viewers that can be open at the same time.</param>
+            <returns>Object containing the options used for initializing the API</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.OptionsFactory.Create(System.String,System.String,System.String,System.String,StreetSmart.WinForms.Interfaces.IAddressSettings,StreetSmart.WinForms.Interfaces.IDomElement,System.Nullable{System.Int32})">
+            <summary>
+            Create the options object which used for initializing the API
+            </summary>
+            <param name="userName">Username of the user.</param>
+            <param name="password">Password of the user.</param>
+            <param name="apiKey">ApiKey given to the user.</param>
+            <param name="srs">Coordinate system used in the API. E.g. "EPSG:29882".</param>
+            <param name="addressSettings">The address settings to use for address searches.</param>
+            <param name="element">The Domelement where in the panoramic image is rendered.</param>
+            <param name="maxWindows">Maximum number of panorama viewers that can be open at the same time.</param>
+            <returns>Object containing the options used for initializing the API</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.OptionsFactory.Create(System.String,System.String,System.String,System.String,System.String,StreetSmart.WinForms.Interfaces.IAddressSettings,StreetSmart.WinForms.Interfaces.IDomElement,System.Nullable{System.Int32})">
+            <summary>
+            Create the options object which used for initializing the API
+            </summary>
+            <param name="userName">Username of the user.</param>
+            <param name="password">Password of the user.</param>
+            <param name="apiKey">ApiKey given to the user.</param>
+            <param name="srs">Coordinate system used in the API. E.g. "EPSG:29882".</param>
+            <param name="locale">Language used as default in the API.</param>
+            <param name="addressSettings">The address settings to use for address searches.</param>
+            <param name="element">The Domelement where in the panoramic image is rendered.</param>
+            <param name="maxWindows">Maximum number of panorama viewers that can be open at the same time.</param>
+            <returns>Object containing the options used for initializing the API</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.OptionsFactory.Create(System.String,System.String,System.String,System.String,System.Globalization.CultureInfo,StreetSmart.WinForms.Interfaces.IAddressSettings,StreetSmart.WinForms.Interfaces.IDomElement,System.Nullable{System.Int32})">
+            <summary>
+            Create the options object which used for initializing the API
+            </summary>
+            <param name="userName">Username of the user.</param>
+            <param name="password">Password of the user.</param>
+            <param name="apiKey">ApiKey given to the user.</param>
+            <param name="srs">Coordinate system used in the API. E.g. "EPSG:29882".</param>
+            <param name="locale">Language used as default in the API.</param>
+            <param name="addressSettings">The address settings to use for address searches.</param>
+            <param name="element">The Domelement where in the panoramic image is rendered.</param>
+            <param name="maxWindows">Maximum number of panorama viewers that can be open at the same time.</param>
+            <returns>Object containing the options used for initializing the API</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.OptionsFactory.Create(System.String,System.String,System.String,System.String,System.String,System.String,StreetSmart.WinForms.Interfaces.IAddressSettings,StreetSmart.WinForms.Interfaces.IDomElement,System.Nullable{System.Int32})">
+            <summary>
+            Create the options object which used for initializing the API
+            </summary>
+            <param name="userName">Username of the user.</param>
+            <param name="password">Password of the user.</param>
+            <param name="apiKey">ApiKey given to the user.</param>
+            <param name="srs">Coordinate system used in the API. E.g. "EPSG:29882".</param>
+            <param name="locale">Language used as default in the API.</param>
+            <param name="configurationURL">Alternate configuration url to use for all configuration services.</param>
+            <param name="addressSettings">The address settings to use for address searches.</param>
+            <param name="element">The Domelement where in the panoramic image is rendered.</param>
+            <param name="maxWindows">Maximum number of panorama viewers that can be open at the same time.</param>
+            <returns>Object containing the options used for initializing the API</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.OptionsFactory.Create(System.String,System.String,System.String,System.String,System.Globalization.CultureInfo,System.String,StreetSmart.WinForms.Interfaces.IAddressSettings,StreetSmart.WinForms.Interfaces.IDomElement,System.Nullable{System.Int32})">
+            <summary>
+            Create the options object which used for initializing the API
+            </summary>
+            <param name="userName">Username of the user.</param>
+            <param name="password">Password of the user.</param>
+            <param name="apiKey">ApiKey given to the user.</param>
+            <param name="srs">Coordinate system used in the API. E.g. "EPSG:29882".</param>
+            <param name="locale">Language used as default in the API.</param>
+            <param name="configurationURL">Alternate configuration url to use for all configuration services.</param>
+            <param name="addressSettings">The address settings to use for address searches.</param>
+            <param name="element">The Domelement where in the panoramic image is rendered.</param>
+            <param name="maxWindows">Maximum number of panorama viewers that can be open at the same time.</param>
+            <returns>Object containing the options used for initializing the API</returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:StreetSmart.WinForms.Factories.AddressSettingsFactory">
+            <summary>
+            Factory for create address settings to use for address searches
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.AddressSettingsFactory.Create(System.String)">
+            <summary>
+            Create address settings to use for address searches
+            </summary>
+            <param name="database">The name of the database. e.g. 'CMDatabase'</param>
+            <returns>The address settings to use for address searches</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.AddressSettingsFactory.Create(System.String,System.String)">
+            <summary>
+            Create address settings to use for address searches
+            </summary>
+            <param name="locale">The locale to use. e.g. 'nl'</param>
+            <param name="database">The name of the database. e.g. 'CMDatabase'</param>
+            <returns>The address settings to use for address searches</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Factories.AddressSettingsFactory.Create(System.Globalization.CultureInfo,System.String)">
+            <summary>
+            Create address settings to use for address searches
+            </summary>
+            <param name="locale">The locale to use. e.g. 'nl'</param>
+            <param name="database">The name of the database. e.g. 'CMDatabase'</param>
+            <returns>The address settings to use for address searches</returns>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IOverlay">
+            <summary>
+            Information about the overlay
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOverlay.Id">
+            <summary>
+            Id of the overlay
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOverlay.Name">
+            <summary>
+            Name of the layer
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOverlay.GeoJson">
+            <summary>
+            GeoJSON object containing the layer data
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOverlay.Srs">
+            <summary>
+            Optional EPSG code (srs) for the source GeoJSON, if not provided, srs of API initialisation is used.
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOverlay.Sld">
+            <summary>
+            Optional XML string for Styled Layer Descriptor.
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.PanoramaViewerButtons">
+            <summary>
+            Defines the panorama viewer buttons
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.PanoramaViewerButtons.Overlays">
+            <summary>
+            overlays
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.PanoramaViewerButtons.OpenOblique">
+            <summary>
+            open oblique
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.PanoramaViewerButtons.CenterMap">
+            <summary>
+            center map
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.PanoramaViewerButtons.ImageInformation">
+            <summary>
+            image information
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.PanoramaViewerButtons.CopyLink">
+            <summary>
+            copy link
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.PanoramaViewerButtons.SaveImage">
+            <summary>
+            save image
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.PanoramaViewerButtons.ZoomIn">
+            <summary>
+            zoom in
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.PanoramaViewerButtons.ZoomOut">
+            <summary>
+            zoom out
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IMeasurementOptions">
+            <summary>
+            Measurement options for start the measurement
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IMeasurementOptions.GeometryType">
+            <summary>
+            The Geometry type of the measurement
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IObliqueViewer">
+            <inheritdoc />
+            <summary>
+            ObliqueViewer component. Gets created by the StreetSmartAPI.
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IObliqueViewer.GetButtonEnabled(StreetSmart.WinForms.Interfaces.ObliqueViewerButtons)">
+            <summary>
+            Get the visibility of a button
+            </summary>
+            <param name="buttonId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IObliqueViewer.ToggleButtonEnabled(StreetSmart.WinForms.Interfaces.ObliqueViewerButtons,System.Boolean)">
+            <summary>
+            Toggle the visibility of a button.
+            </summary>
+            <param name="buttonId"></param>
+            <param name="enabled">if available, sets enabled to this value</param>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IViewer">
+            <summary>
+            The vewer interface
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IViewer.GetNavbarExpanded">
+            <summary>
+            Returns the navbarExpanded state.
+            This is an asynchronous function.
+            </summary>
+            <returns> The navbarExpanded state.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IViewer.GetNavbarVisible">
+            <summary>
+            Returns the visibility state of the navbar.
+            This is an asynchronous function.
+            </summary>
+            <returns>The visibility state of the navbar.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IViewer.GetTimeTravelExpanded">
+            <summary>
+            Returns whether the timetravel component is visible or hidden.
+            This is an asynchronous function.
+            </summary>
+            <returns>Whether the timetravel component is visible or hidden.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IViewer.GetTimeTravelVisible">
+            <summary>
+            Returns whether timetravel is enabled for the viewer.
+            This is an asynchronous function.
+            </summary>
+            <returns>Whether timetravel is enabled for the viewer.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IViewer.ToggleNavbarExpanded(System.Boolean)">
+            <summary>
+            Modify the state of navbar expanded in the panorama viewer store.
+            </summary>
+            <param name="expanded">Sets expanded to this value.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IViewer.ToggleNavbarVisible(System.Boolean)">
+            <summary>
+            Toggles the visibility of the navbar in the PanoramaViewer.
+            </summary>
+            <param name="visible">Sets visibility to this value.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IViewer.ToggleTimeTravelExpanded(System.Boolean)">
+            <summary>
+            Expands or hides the timetravel components.
+            </summary>
+            <param name="expanded">Value for expanding or hiding time travel.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IViewer.ToggleTimeTravelVisible(System.Boolean)">
+            <summary>
+            Enables or disables timeTravel in the viewer.
+            </summary>
+            <param name="visible">Value for enabling or disablingtoggles time travel.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IViewer.ZoomIn">
+            <summary>
+            Zoom in in the Panorama. This will alter the hFov.
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IViewer.ZoomOut">
+            <summary>
+            Zoom out in the Panorama. This will alter the hFov.
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IViewerTypes">
+            <summary>
+            Contains the viewerTypes of the open viewers
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IViewerTypes.GetTypes">
+            <summary>
+            Get the viewertypes
+            </summary>
+            <returns>List of viewerTypes</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IViewerTypes.AddType(StreetSmart.WinForms.Interfaces.ViewerType)">
+            <summary>
+            Add the viewerType
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IViewerTypes.RemoveType(StreetSmart.WinForms.Interfaces.ViewerType)">
+            <summary>
+            Remove the viewerType
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IViewerOptions">
+            <summary>
+            The address settings to use for address searches
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IViewerOptions.ViewerTypes">
+            <summary>
+            The viewerType
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IViewerOptions.Srs">
+            <summary>
+            The Srs of the open viewer
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IViewerOptions.Replace">
+            <summary>
+            Whether the panorama viewer window should be replace.
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IPanoramaViewerOptions">
+            <summary>
+            Options to initialize the panorama viewer with
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IPanoramaViewerOptions.RecordingsVisible">
+            <summary>
+            If recordings should be visible
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IPanoramaViewerOptions.TimeTravelVisible">
+            <summary>
+            If time travel is enabled
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IPanoramaViewerOptions.NavbarVisible">
+            <summary>
+            If navbar is enabled
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.ObliqueViewerButtons">
+            <summary>
+            Defines the oblique viewer buttons
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.ObliqueViewerButtons.CenterMap">
+            <summary>
+            center map
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.ObliqueViewerButtons.ImageInformation">
+            <summary>
+            image information
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.ObliqueViewerButtons.CopyLink">
+            <summary>
+            copy link
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.ObliqueViewerButtons.SaveImage">
+            <summary>
+            save image
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.ObliqueViewerButtons.ZoomIn">
+            <summary>
+            zoom in
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.ObliqueViewerButtons.ZoomOut">
+            <summary>
+            zoom out
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.ObliqueViewerButtons.SwitchDirection">
+            <summary>
+            switch direction
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.ObliqueViewerButtons.ToggleNadir">
+            <summary>
+            toggle nadir
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.StyleElementNumberType">
+            <summary>
+            Type of the style element number
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.StyleElementNumberType.Percent">
+            <summary>
+            The number in percent
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.StyleElementNumberType.Pixels">
+            <summary>
+            The number in pixels
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.StyleElementName">
+            <summary>
+            Name of the style element
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.StyleElementName.Width">
+            <summary>
+            Width valueof the style element
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.StyleElementName.Height">
+            <summary>
+            Height value of the style element
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.StyleElementName.Position">
+            <summary>
+            Position of the style element
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.StyleElementName.Top">
+            <summary>
+            Top value of the style element
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.StyleElementName.Left">
+            <summary>
+            Left value of the style element
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IDomElement">
+            <summary>
+            Represents an object which takes a panorama viewer.
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IDomElement.Id">
+            <summary>
+            The Id of the element
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IDomElement.Style">
+            <summary>
+            The Style of the element
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IDomElement.Name">
+            <summary>
+            The name of the element
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.ProductType">
+            <summary>
+            ProductType of the recording.
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.ProductType.Cyclorama">
+            <summary>
+            Cyclorama
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.ProductType.Aquarama">
+            <summary>
+            Aquarama
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.ProductType.Aerial">
+            <summary>
+            Aerial
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.ProductType.Aerorama">
+            <summary>
+            Aerorama
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IStyle">
+            <summary>
+            Style element of the domElement
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStyle.AddStyle(StreetSmart.WinForms.Interfaces.StyleElementName,System.String)">
+            <summary>
+            Add a style element
+            </summary>
+            <param name="name">Name of the style element</param>
+            <param name="value">Value of the style element</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStyle.AddStyle(StreetSmart.WinForms.Interfaces.StyleElementName,System.Int32,StreetSmart.WinForms.Interfaces.StyleElementNumberType)">
+            <summary>
+            Add a style element
+            </summary>
+            <param name="name">Name of the style element</param>
+            <param name="value">Value of the style element</param>
+            <param name="type">Type of the style element</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStyle.RemoveStyle(StreetSmart.WinForms.Interfaces.StyleElementName)">
+            <summary>
+            Remove a style element
+            </summary>
+            <param name="name">Name of the style element</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStyle.UpdateStyle(StreetSmart.WinForms.Interfaces.StyleElementName,System.String)">
+            <summary>
+            Update a style element
+            </summary>
+            <param name="name">Name of the style element</param>
+            <param name="value">Value of the style element</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStyle.UpdateStyle(StreetSmart.WinForms.Interfaces.StyleElementName,System.Int32,StreetSmart.WinForms.Interfaces.StyleElementNumberType)">
+            <summary>
+            Update a style element
+            </summary>
+            <param name="name">Name of the style element</param>
+            <param name="value">Value of the style element</param>
+            <param name="type">Type of the style element</param>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.TileSchema">
+            <summary>
+            TileSchema of the recording.
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.TileSchema.NoTiling">
+            <summary>
+            No tiling
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.TileSchema.Dcr9Tiling">
+            <summary>
+            DCR9 Tiling.
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.TileSchema.Dcr10Tiling">
+            <summary>
+            DCR10 Tiling
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IRecordingClickInfo">
+            <summary>
+            Triggers when a recording is clicked inside the PanoramaViewer.
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecordingClickInfo.Recording">
+            <summary>
+            The Recording clicked
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecordingClickInfo.CtrlKey">
+            <summary>
+            If ctrl-key is pressed
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecordingClickInfo.ShiftKey">
+            <summary>
+            If shift-key is pressed
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecordingClickInfo.AltKey">
+            <summary>
+            If alt-key is pressed
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.ICoordinate">
+            <summary>
+            Coordinate definition
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.ICoordinate.X">
+            <summary>
+             X value of the coordinate
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.ICoordinate.Y">
+            <summary>
+            Y value of the coordinate
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.ICoordinate.Z">
+            <summary>
+            Z value of the coordinate
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IAddressSettings">
+            <summary>
+            The address settings to use for address searches
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IAddressSettings.Locale">
+            <summary>
+            The locale to use. e.g. 'nl'
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IAddressSettings.Database">
+            <summary>
+            The name of the database. e.g. 'CMDatabase'
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IOptions">
+            <summary>
+            Object containing the options used for initializing the API
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOptions.Username">
+            <summary>
+            Username of the user.
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOptions.Password">
+            <summary>
+            Password of the user.
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOptions.APIKey">
+            <summary>
+            ApiKey given to the user.
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOptions.SRS">
+            <summary>
+            Coordinate system used in the API. E.g. "EPSG:29882".
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOptions.Locale">
+            <summary>
+            Language used as default in the API.
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOptions.ConfigurationURL">
+            <summary>
+            Alternate configuration url to use for all configuration services
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOptions.AddressSettings">
+            <summary>
+            The address settings to use for address searches.
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOptions.Element">
+            <summary>
+            DomElement where in the panoramic viewer is rendered
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOptions.MaxWindows">
+            <summary>
+            Maximum number of panorama viewers that can be open at the same time
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IEventArgs`1">
+            <summary>
+            Generic event implementation
+            </summary>
+            <typeparam name="T">Event type</typeparam>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IEventArgs`1.Value">
+            <summary>
+            The event value
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IOrientation">
+            <summary>
+            Orientation Object that contains values.
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOrientation.Yaw">
+            <summary>
+            Optional value of the yaw.
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOrientation.Pitch">
+            <summary>
+            Optional value of the pitch.
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IOrientation.HFov">
+            <summary>
+            Optional value of the hFov.
+            </summary>    
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IRecording">
+            <summary>
+            Information about the Recording
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecording.GroundLevelOffset">
+            <summary>
+            Ground level offset
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecording.RecorderDirection">
+            <summary>
+            Recorder direction
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecording.Orientation">
+            <summary>
+            Orientation
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecording.RecordedAt">
+            <summary>
+            RecordedAt
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecording.Id">
+            <summary>
+            ImageId
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecording.XYZ">
+            <summary>
+            xyz coordinate
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecording.SRS">
+            <summary>
+            Coordinate system
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecording.OrientationPrecision">
+            <summary>
+            Orientation precision
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecording.TileSchema">
+            <summary>
+            Tile schema
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecording.LongitudePrecision">
+            <summary>
+            Longitude precision
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecording.LatitudePrecision">
+            <summary>
+            Latitiude precision
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecording.HeightPrecision">
+            <summary>
+            Height precision
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecording.ProductType">
+            <summary>
+            Product type
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecording.HeightSystem">
+            <summary>
+            Height coordiate system
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IRecording.ExpiredAt">
+            <summary>
+            Expired at date
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IPanoramaViewer">
+            <inheritdoc />
+            <summary>
+            PanoramaViewer component. Gets created by the StreetSmartAPI.
+            </summary>
+        </member>
+        <member name="E:StreetSmart.WinForms.Interfaces.IPanoramaViewer.ImageChange">
+            <summary>
+            Triggers when the loaded panorama is altered.
+            </summary>
+        </member>
+        <member name="E:StreetSmart.WinForms.Interfaces.IPanoramaViewer.RecordingClick">
+            <summary>
+            Triggers when a recording is clicked inside the PanoramaViewer.
+            </summary>
+        </member>
+        <member name="E:StreetSmart.WinForms.Interfaces.IPanoramaViewer.TileLoadError">
+            <summary>
+            Triggers when one or more tiles could not be loaded.
+            </summary>
+        </member>
+        <member name="E:StreetSmart.WinForms.Interfaces.IPanoramaViewer.TimeTravelChange">
+            <summary>
+            Triggers when time travel date is changed
+            </summary>
+        </member>
+        <member name="E:StreetSmart.WinForms.Interfaces.IPanoramaViewer.ViewChange">
+            <summary>
+            Triggers when the view (pitch, hFov or yaw) of the panorama is altered.
+            </summary>
+        </member>
+        <member name="E:StreetSmart.WinForms.Interfaces.IPanoramaViewer.ViewLoadEnd">
+            <summary>
+            Triggers when everything that is needed for the view to dislay correctly is loaded.
+            </summary>
+        </member>
+        <member name="E:StreetSmart.WinForms.Interfaces.IPanoramaViewer.ViewLoadStart">
+            <summary>
+            Triggers when the view is altered and needs to be (partly) reloaded.
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.GetButtonEnabled(StreetSmart.WinForms.Interfaces.PanoramaViewerButtons)">
+            <summary>
+            Get the visibility of a button
+            </summary>
+            <param name="buttonId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.GetOrientation">
+            <summary>
+            Returns the orientation in degrees (yaw, pitch, hFov) for this CycloramaViewer.
+            This is an asynchronous function.
+            </summary>
+            <returns>The orientation in degrees (yaw, pitch, hFov) for this CycloramaViewer.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.GetRecording">
+            <summary>
+            Gets the current active recording of the PanoramaViewer.
+            This is an asynchronous function.
+            </summary>
+            <returns>The current active recording of the PanoramaViewer.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.GetRecordingsVisible">
+            <summary>
+            Returns whether recordings are visible.
+            This is an asynchronous function.
+            </summary>
+            <returns>Whether recordings are visible.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.GetViewerColor">
+            <summary>
+            Gets the viewer color.
+            This is an asynchronous function.
+            </summary>
+            <returns>The current viewer color.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.LookAtCoordinate(StreetSmart.WinForms.Interfaces.ICoordinate,System.String)">
+            <summary>
+            Sets the orientation of the PanoramaViewer to look at a certain coordinate.
+            </summary>
+            <param name="coordinate">Coordinate to look to.</param>
+            <param name="srs">(optional) Will use to convert coordinate to viewer srs.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.OpenByAddress(System.String,System.String)">
+            <summary>
+            Opens a panorama closest to the given address.
+            </summary>
+            <param name="query">Address you want to search.</param>
+            <param name="srs">(optional) Coordinate system in which the panorama will be opened.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.OpenByCoordinate(StreetSmart.WinForms.Interfaces.ICoordinate,System.String)">
+            <summary>
+            Opens an image by coordinates and accompanying coordinate system.
+            </summary>
+            <param name="coordinate">Coordinate of location to open a panorama.</param>
+            <param name="srs">(optional) Will use to convert coordinate to viewer srs.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.OpenByImageId(System.String,System.String)">
+            <summary>
+            Opens an image by imageId.
+            </summary>
+            <param name="imageId">ID of the image that needs to be opened.</param>
+            <param name="srs">(optional) Coordinate system in which the panorama will be opened.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.RotateDown(System.Double)">
+            <summary>
+            Rotates the panorama vertically by a certain amount, as if the camera is turning to the ground.
+            </summary>
+            <param name="deltaPitch">Amount to rotate the image, in degrees.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.RotateLeft(System.Double)">
+            <summary>
+            Rotates the panorama horizontally by a certain amount, as if the camera is turning to the left.
+            </summary>
+            <param name="deltaYaw">Amount to rotate the image, in degrees.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.RotateRight(System.Double)">
+            <summary>
+            Rotates the panorama horizontally by a certain amount, as if the camera is turning to the right.
+            </summary>
+            <param name="deltaYaw">Amount to rotate the image, in degrees.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.RotateUp(System.Double)">
+            <summary>
+            Rotates the panorama vertically by a certain amount, as if the camera is turning to the sky.
+            </summary>
+            <param name="deltaPitch">Amount to rotate the image, in degrees.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.SetOrientation(StreetSmart.WinForms.Interfaces.IOrientation)">
+            <summary>
+            Sets the orientation {yaw, pitch, hFov} of the PanoramaViewer to specific values all at once.
+            </summary>
+            <param name="orientation">Orientation object that contains values to change.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.ToggleButtonEnabled(StreetSmart.WinForms.Interfaces.PanoramaViewerButtons,System.Boolean)">
+            <summary>
+            Toggle the visibility of a button.
+            </summary>
+            <param name="buttonId"></param>
+            <param name="enabled">if available, sets enabled to this value</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IPanoramaViewer.ToggleRecordingsVisible(System.Boolean)">
+            <summary>
+            Toggles the visibility of the recording features in the PanoramaViewer.
+            </summary>
+            <param name="visible">Sets visibility to this value.</param>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.IStreetSmartAPI">
+            <summary>
+            API used to use and modify various StreetSmart components.
+            </summary>
+        </member>
+        <member name="E:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.APIReady">
+            <summary>
+            Triggers when the frame is loaded.
+            After this trigger, you can login in the the API.
+            </summary>
+        </member>
+        <member name="E:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.MeasurementChanged">
+            <summary>
+            Measurement changed or added.
+            </summary>
+        </member>
+        <member name="E:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.ViewerAdded">
+            <summary>
+            Viewer is added (panoramic or oblique)
+            </summary>
+        </member>
+        <member name="E:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.ViewerRemoved">
+            <summary>
+            Viewer is removed (panoramic of oblique)
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.GUI">
+            <summary>
+            The GUI of StreetSmart
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.ShowDefTools">
+            <summary>
+            Show the developer tools
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.CloseDefTools">
+            <summary>
+            Close the developer tools
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.AddOverlay(StreetSmart.WinForms.Interfaces.IOverlay)">
+            <summary>
+            Add a GeoJSON overlay to the panorama viewer. SRS of API initialisation is used.
+            Use overload with sourceSrs parameter if provided GeoJSON is in a different coordinate system.
+            </summary>
+            <param name="overlay">The overlay to add</param>
+            <returns>the overlay object</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.AddPanoramaViewer(StreetSmart.WinForms.Interfaces.IDomElement,StreetSmart.WinForms.Interfaces.IPanoramaViewerOptions)">
+            <summary>
+            Adds a PanoramaViewer to a specified DOM-element
+            </summary>
+            <param name="element">DOM-element the PanoramaViewer gets rendered to.</param>
+            <param name="options">Options to initialize the panorama viewer with.</param>
+            <returns></returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.Destroy(StreetSmart.WinForms.Interfaces.IOptions)">
+            <summary>
+            Destroys the API. Cleans up its event handlers and makes used memory available for garbage collection.
+            </summary>
+            <param name="options">Object containing the options used for destroying the API.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.DestroyPanoramaViewer(StreetSmart.WinForms.Interfaces.IPanoramaViewer)">
+            <summary>
+            Destroys panorama viewer
+            </summary>
+            <param name="viewer">Instance of the PanoramaViewer you want to destroy.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.GetActiveMeasurement">
+            <summary>
+            Returns the active measurement in GeoJSON format
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.GetAddressSettings">
+            <summary>
+            Returns the object containing the address search settings
+            </summary>
+            <returns>Object containing the address settings</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.GetApiReadyState">
+            <summary>
+            Returns the current 'ready'-state of the API.
+            This is an asynchronous function.
+            </summary>
+            <returns>The current 'ready'-state of the API.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.GetApplicationName">
+            <summary>
+            Returns the application name of the API.
+            This is an asynchronous function.
+            </summary>
+            <returns>The application name of the API.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.GetApplicationVersion">
+            <summary>
+            Returns the used version of the API.
+            This is an asynchronous function.
+            </summary>
+            <returns>API version number.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.GetDebugLogs">
+            <summary>
+            Returns all logs, including ones invisible to integrators.
+            </summary>
+            <returns>Array of console logs.</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.GetPermissions">
+            <summary>
+            Returns the object containing functionalities that are currently permitted to use by the user.
+            This is an asynchronous function.
+            </summary>
+            <returns>Array containing the permissions</returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.Init(StreetSmart.WinForms.Interfaces.IOptions)">
+            <summary>
+            Initializes the API using the inserted values. Required to use functional PanoramaViewers.
+            </summary>
+            <param name="options">Object containing the options used for initializing the API.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.Open(System.String,StreetSmart.WinForms.Interfaces.IViewerOptions)">
+            <summary>
+            Open a panorama and/or oblique viewer using a query. The query can be a coordinate,
+            an extent, an address or a panorama/oblique ID.
+            </summary>
+            <param name="query">query for open a panoramic image</param>
+            <param name="options">viewer options for open the panoramic image</param>
+            <returns></returns>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.RemoveOverlay(System.String)">
+            <summary>
+            Removes a GeoJSON overlay from the panorama viewer.
+            </summary>
+            <param name="id">The id of the overlay</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.StartMeasurementMode(StreetSmart.WinForms.Interfaces.IPanoramaViewer,StreetSmart.WinForms.Interfaces.IMeasurementOptions)">
+            <summary>
+            Starts the measurement
+            </summary>
+            <param name="viewer">Panorama viewer for start the measurement inside</param>
+            <param name="options">Measurement options</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Interfaces.IStreetSmartAPI.StopMeasurementMode">
+            <summary>
+            Stops the measurement
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.MeasurementGeometryType">
+            <summary>
+            Defines the geometryTypes of the API
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.MeasurementGeometryType.Point">
+            <summary>
+            geometry point
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.MeasurementGeometryType.LineString">
+            <summary>
+            geometry linestring
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.MeasurementGeometryType.Polygon">
+            <summary>
+            geometry polygon
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Interfaces.ViewerType">
+            <summary>
+            Defines the viewerTypes of the API
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.ViewerType.Panorama">
+            <summary>
+            Panoramic image
+            </summary>
+        </member>
+        <member name="F:StreetSmart.WinForms.Interfaces.ViewerType.Oblique">
+            <summary>
+            Oblique image
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.Exceptions.StreetSmartLoginFailedException">
+            <inheritdoc />
+            <summary>
+            Exception when Login failed
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Exceptions.StreetSmartLoginFailedException.#ctor(System.String)">
+            <inheritdoc />
+            <summary>
+            Create StreetSmartLoginFailedException class
+            </summary>
+            <param name="message">The message of the exception</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Exceptions.StreetSmartLoginFailedException.#ctor(System.String,System.Exception)">
+            <inheritdoc />
+            <summary>
+            Create StreetSmartLoginFailedException class
+            </summary>
+            <param name="message">The message of the exception</param>
+            <param name="inner">The inner exception</param>
+        </member>
+        <member name="T:StreetSmart.WinForms.Exceptions.StreetSmartImageNotFoundException">
+            <inheritdoc />
+            <summary>
+            Exception when no images can not be found
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.Exceptions.StreetSmartImageNotFoundException.#ctor(System.String)">
+            <inheritdoc />
+            <summary>
+            Create StreetSmartImageNotFoundException class
+            </summary>
+            <param name="message">The message of the exception</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.Exceptions.StreetSmartImageNotFoundException.#ctor(System.String,System.Exception)">
+            <inheritdoc />
+            <summary>
+             Create StreetSmartImageNotFoundException class
+            </summary>
+            <param name="message">The message of the exception</param>
+            <param name="inner">The inner exception</param>
+        </member>
+        <member name="T:StreetSmart.WinForms.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Properties.Resources.JsApi">
+            <summary>
+              Looks up a localized string similar to StreetSmartApi.
+            </summary>
+        </member>
+        <member name="P:StreetSmart.WinForms.Properties.Resources.StreetSmartLocation">
+            <summary>
+              Looks up a localized string similar to https://streetsmart.cyclomedia.com/api/v17.3/api-dotnet.html.
+            </summary>
+        </member>
+        <member name="T:StreetSmart.WinForms.StreetSmartGUI">
+            <inheritdoc />
+            <summary>
+            The <c>StreetSmartGUI</c> class is the <c>UserControl</c> within Street Smart runs.
+            This class must be added to a <c>UserControl</c> within your application.
+            
+            <code>
+            public class Demo
+            {
+              private IStreetSmartAPI _api;
+            
+              public void StartAPI()
+              {
+                _api = StreetSmartAPIFactory.Create();
+                _api.APIReady += OnAPIReady;
+            
+              }
+            }
+            </code>
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.StreetSmartGUI.#ctor(CefSharp.WinForms.ChromiumWebBrowser)">
+            <inheritdoc />
+            <summary>
+            Create the GUI of StreetSmart
+            </summary>
+            <param name="browser">The browser</param>
+        </member>
+        <member name="F:StreetSmart.WinForms.StreetSmartGUI.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:StreetSmart.WinForms.StreetSmartGUI.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:StreetSmart.WinForms.StreetSmartGUI.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>
