@@ -337,28 +337,7 @@ class AutoCrawler:
             print('Data imbalance not detected.')
 
 
-def get_keywords_from_user():
-    print('Type a keyword line by line. If you enter all keywords, please type iamdone ')
-    keyword = ""
-    keywords = []
-    while keyword != "iamdone":
-        keyword = input("Type keyword:")
-        if keyword == "iamdone":
-            break
-        keywords.append(keyword)
-
-    with open('keywords.txt', 'w') as f:
-        for line in keywords:
-            f.write(line)
-            f.write('\n')
-
-    limit = int(input('How many images would you like to downlaod: '))
-    return limit
-
-
 if __name__ == '__main__':
-    user_limit = get_keywords_from_user()
-
     parser = argparse.ArgumentParser()
     parser.add_argument('--skip', type=str, default='true',
                         help='Skips keyword already downloaded before. This is needed when re-downloading.')
@@ -372,7 +351,7 @@ if __name__ == '__main__':
                         help='No GUI mode. Acceleration for full_resolution mode. '
                              'But unstable on thumbnail mode. '
                              'Default: "auto" - false if full=false, true if full=true')
-    parser.add_argument('--limit', type=int, default=100,
+    parser.add_argument('--limit', type=int, default=1000,
                         help='Maximum count of images to download per site. (0: infinite)')
     parser.add_argument('--proxy-list', type=str, default='',
                         help='The comma separated proxy list like: "socks://127.0.0.1:1080,http://127.0.0.1:1081". '
@@ -385,8 +364,7 @@ if __name__ == '__main__':
     _naver = False if str(args.naver).lower() == 'false' else True
     _full = False if str(args.full).lower() == 'false' else True
     _face = False if str(args.face).lower() == 'false' else True
-    _limit = user_limit
-    # _limit = int(args.limit)
+    _limit = int(args.limit)
     _proxy_list = args.proxy_list.split(',')
 
     no_gui_input = str(args.no_gui).lower()

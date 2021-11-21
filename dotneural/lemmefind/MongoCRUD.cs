@@ -12,7 +12,7 @@ namespace lemmefind
         public string objectName { get; set; }
         public double longitude { get; set; }
         public double latitude { get; set; }
-        public bool isFound { get; set; }
+        public int amount { get; set; }
     }
 
 

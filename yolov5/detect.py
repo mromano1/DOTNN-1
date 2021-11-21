@@ -39,6 +39,7 @@ from utils.torch_utils import load_classifier, select_device, time_sync
 
 # MongoDB Connection
 from pymongo import MongoClient
+from collections import defaultdict
 client = MongoClient('mongodb+srv://developer1:hyunsoo97@qple-core.jxnch.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 db = client['Lemmefind']
 obj = db['Objects']
@@ -208,6 +209,7 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
         if classify:
             pred = apply_classifier(pred, modelc, img, im0s)
 
+
         # Process predictions
         for i, det in enumerate(pred):  # per image
             seen += 1
@@ -226,6 +228,10 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
                     idx = i
                     break
             coordinates = p.name[0:idx].split(',')
+
+            # Hyunsoo: Make a hashtable
+            object_dict = defaultdict(int)
+            # End
 
             save_path = str(save_dir / p.name)  # img.jpg
             txt_path = str(save_dir / 'labels' / p.stem) + ('' if dataset.mode == 'image' else f'_{frame}')  # img.txt
@@ -254,16 +260,32 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
                         c = int(cls)  # integer class
                         label = None if hide_labels else (names[c] if hide_conf else f'{names[c]} {conf:.2f}')
 
-                        post = {
-                            "objectName": names[c],
-                            "longitude": float(coordinates[0]),
-                            "latitude": float(coordinates[1]),
-                        }
-                        post_id = obj.insert_one(post).inserted_id
+
+                        object_dict[names[c]] += 1
 
                         annotator.box_label(xyxy, label, color=colors(c, True))
                         if save_crop:
                             save_one_box(xyxy, imc, file=save_dir / 'crops' / names[c] / f'{p.stem}.jpg', BGR=True)
+
+            # Hyunsoo
+
+            for key in object_dict:
+                post = {"$set":{
+                    "objectName": key,
+                    "longitude": float(coordinates[0]),
+                    "latitude": float(coordinates[1]),
+                    "amount": object_dict[key]
+                }}
+
+                filter = {
+                    "objectName": key,
+                    "longitude": float(coordinates[0]),
+                    "latitude": float(coordinates[1]),
+                }
+                print(post)
+                # obj.insert_one(post).inserted_id
+                obj.update_one(filter, post, upsert=True)
+            # End
 
             # Print time (inference-only)
             LOGGER.info(f'{s}Done. ({t3 - t2:.3f}s)')
