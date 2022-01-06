@@ -40,7 +40,9 @@ from utils.torch_utils import load_classifier, select_device, time_sync
 # MongoDB Connection
 from pymongo import MongoClient
 from collections import defaultdict
-client = MongoClient('mongodb+srv://developer1:hyunsoo97@qple-core.jxnch.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://developer1:hyunsoo97@qple-core.jxnch.mongodb.net/myFirstDatabase?retryWrites=true&w=majority') 
+# This is where you need to change like below
+# client =  MongoClient('mongodb+srv://YOUR USER ID:YOUR USER PASSWORD@YOUR-SERVER.jxnch.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 db = client['Lemmefind']
 obj = db['Objects']
 # END
